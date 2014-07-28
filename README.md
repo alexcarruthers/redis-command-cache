@@ -20,6 +20,7 @@ var ttl = 600; //Time-to-live on local and redis cache in seconds, local default
 var cache = redisCache(db.createClient(), db.createClient(), size, ttl);
 // var cache = redisCache(db.createClient(), db.createClient()); => local size 500,
 // ttl on local 10 min, no ttl on redis
+// var cache = redisCache(db.createClient(), db.createClient()); => local size 500, ttl on local 10 min, no ttl on redis
 
 cache.set("key", "aaa", function() {
   cache.get("key", function(err, value) {
